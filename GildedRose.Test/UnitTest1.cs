@@ -108,7 +108,7 @@ namespace GildedRose.Test
 
             app.UpdateQuality();
             Assert.AreEqual(2, app.Items[0].SellIn);
-            Assert.AreEqual(5, app.Items[0].Quality);
+            Assert.AreEqual(4, app.Items[0].Quality);
         }
     }
     

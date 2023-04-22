@@ -79,10 +79,9 @@ namespace GildedRose.Console
 
             if (item.SellIn < 0)
             {
-                if (item.Quality > 0)
-                {
-                    item.Quality = item.Quality - 1;
-                }
+                
+                item.Quality = 0;
+                
             }
         }
         private void Sulfuras(Item item)
@@ -107,11 +106,30 @@ namespace GildedRose.Console
             }
         }
 
+        private void Conjured(Item item)
+        {
+            if (item.Quality > 0)
+            {
+                item.Quality = item.Quality - 2;
+            }
+
+            item.SellIn = item.SellIn - 1;
+
+            if (item.SellIn < 0)
+            {
+                if (item.Quality > 0)
+                {
+                    item.Quality = item.Quality - 2;
+                }
+            }
+        }
+
         public void UpdateQuality()
         {
             var dict = new Dictionary<string, Action<Item>> { { "Aged Brie", AgedBrie },
                                                               { "Backstage passes to a TAFKAL80ETC concert", TAFKAL80ETC},
-                                                              { "Sulfuras, Hand of Ragnaros", Sulfuras} };
+                                                              { "Sulfuras, Hand of Ragnaros", Sulfuras},
+                                                              { "Conjured Mana Cake", Conjured} };
                     
             for (var i = 0; i < Items.Count; i++)
             {
