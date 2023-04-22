@@ -108,7 +108,7 @@ namespace GildedRose.Test
 
             app.UpdateQuality();
             Assert.AreEqual(2, app.Items[0].SellIn);
-            Assert.AreEqual(5, app.Items[0].Quality); // Note: The code doesn't have specific rules for "Conjured" items, so this test assumes normal item behavior.
+            Assert.AreEqual(5, app.Items[0].Quality);
         }
     }
     
